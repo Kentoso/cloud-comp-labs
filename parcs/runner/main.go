@@ -7,6 +7,7 @@ import (
 	"math/big"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/lionell/parcs/go/parcs"
 )
@@ -111,6 +112,7 @@ func getInputsFromEnv() Inputs {
 
 func (m *MonteCarlo) Run() {
 	inputs := getInputsFromEnv()
+	startTime := time.Now()
 
 	log.Printf("Received n=%d, a=%f, b=%f, workers=%d", inputs.N, inputs.A, inputs.B, inputs.Workers)
 
@@ -154,6 +156,9 @@ func (m *MonteCarlo) Run() {
 	pi := new(big.Float).Mul(piDivFour, big.NewFloat(4))
 
 	log.Printf("Pi estimation: %v", pi.Text('f', -1))
+
+	execTime := time.Since(startTime).Seconds()
+	log.Printf("Total execution time: %fs", execTime)
 }
 
 func main() {
