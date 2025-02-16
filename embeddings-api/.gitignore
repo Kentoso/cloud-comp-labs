@@ -2,3 +2,4 @@ venv
 token.txt
 __pycache__
 data
+.DS_Store
