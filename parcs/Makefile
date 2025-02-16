@@ -1,4 +1,4 @@
-worker_count := 2
+worker_count := 3
 zone := europe-north1-a
 project_id := labs-knu-ds
 
