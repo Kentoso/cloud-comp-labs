@@ -86,7 +86,7 @@ tell "Firewall rule for Swarmpit created"
 url=$(gcloud compute instances list | grep leader | awk '{print "http://" $6 ":888"}')
 leader_url=$(gcloud compute instances list | grep leader | awk '{print "tcp://" $5 ":4321"}')
 
-cat $(leader_url) | leader_url.txt
+echo "${leader_url}" > leader_url.txt
 
 tell "---------------------------------------"
 tell "LEADER_URL=${leader_url}"
